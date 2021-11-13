@@ -1,0 +1,25 @@
+package com.ee.qa.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.ee.qa.base.TestBase;
+import com.ee.qa.util.TestUtil;
+
+public class HotelBookingFormPage  extends TestBase {
+	
+	
+	TestUtil testutil;
+	@FindBy(xpath = "//a[contains(text(),'Tools')]")
+	WebElement Toolslink;
+	
+	public HotelBookingFormPage() {
+		
+		PageFactory.initElements(driver, this);
+		//Alternate method - replace HomePage.class - in place of "this"
+		testutil = new TestUtil();
+	}
+		
+
+}

@@ -1,0 +1,403 @@
+package com.via.qa.prod.pages;
+
+
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.via.qa.prod.base.TestBase;
+import com.via.qa.prod.util.TestUtil;
+
+public class HomePage extends TestBase{
+	
+	TestUtil testutil;
+	
+	
+	
+//	@FindBy(xpath="//button[@class = 'close']")
+//	WebElement closeBtn;
+
+	//@FindBy(xpath="//span[contains(text(),'×')]")
+	@FindBy(xpath="//button[@class='btn btn-outline-gray-base']")
+	WebElement closeBtn;
+	
+	@FindBy(xpath = "//div[@id='ctx-profile__title']")
+	WebElement AdvisorName;
+
+	@FindBy(xpath="//span[@id='ctx-profile-current__codes']")
+	WebElement RoleCodeLabel;	
+	
+	@FindBy(xpath="//div[@id='fp-100266']")
+	WebElement RoleCodes;	
+	
+	@FindBy(id="via-topbar-brand__logo")
+	WebElement VIALogo;
+	
+	//@FindBy(xpath="//div[@id='hero-form']")
+	@FindBy(xpath="(//img[@class='via-carousel__img'])[2]")
+	WebElement Banner;	
+	
+	@FindBy(xpath="//a[contains(text(),'View client list')]")
+	WebElement ViewClientList;
+	
+	@FindBy(xpath="//span[@id='hero-link--create-client-text']")
+	WebElement CreateAClient;
+	
+//	@FindBy(xpath="//a[contains(text(),'Tools')]")
+//	WebElement Toolslink;
+	
+	
+	
+	@FindBy(xpath = "//a[contains(text(),'Tools')]")
+	WebElement Toolslink;
+	
+	@FindBy(linkText= "Financial Planning")
+	WebElement FinancialPlanningLink;
+	
+	@FindBy(linkText= "Build your campaign")
+	WebElement BuildYourCampaignLink;
+	
+	@FindBy(xpath = "//a[contains(text(),'Leads')]")
+	WebElement LeadsAndOppartunitiesLink;
+		
+	@FindBy(xpath = "//a[contains(text(),'View reports')]")
+	WebElement Insight_ViewReportsLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Investor list')]")
+	WebElement InvestorListLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Task list')]")
+	WebElement TaskListLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Funds')]")
+	WebElement FundsLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Reports')]")
+	WebElement ReportsLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Book analysis')]")
+	WebElement BookAnalysisLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Clients')]")
+	WebElement ClientsTab;
+	
+	@FindBy(xpath ="//a[contains(text(),'Momentum Short Term Insurance')]")
+	WebElement MomentumShortTermInsuranceLink;
+	
+	@FindBy(xpath = "//a[contains(text(),'Book Report')]")
+	WebElement BookReportLink;
+	
+	@FindBy(xpath = "//a[contains(text(),'Tracking')]")
+	WebElement TrackingLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Feedback')]")
+	WebElement FeedbackLink;
+	
+	@FindBy(xpath="//a[contains(text(),\"what's new\")]")
+	WebElement WhatsNewLink;
+	
+	@FindBy(xpath="//a[@class='btn btn-sm btn-black']")
+	WebElement MDSOnlineLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Libraries')]")
+	WebElement LibrariesLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Client Search')]")
+	WebElement ClientSearchLink;
+	
+	@FindBy(xpath="//a[contains(text(),'Wills and Trust')]")
+	WebElement WillsAndTrustLink;
+		
+	@FindBy(xpath="//a[contains(text(),'Multiply Book Report')]")
+	WebElement MultiplyBookReportLink;
+	
+	//@FindBy(xpath = "//*[@id=\"via-main-content\"]/div[3]/div/div/div[3]/div/div/div/div[1]/div/a")
+	@FindBy(xpath = "(//a[contains(text(),'View')])[2]")
+	WebElement ProductProviders;
+	
+	//*[@id="via-main-content"]/div[3]/div/div/div[3]/div/div/div/div[1]/div/a
+	
+	//@FindBy(xpath = "//div[@class='tools-blocks']//div//a[contains(text(),'Go to')]")
+	@FindBy(xpath = "(//a[contains(text(),'Go to')])[5]")
+	WebElement PP_ShortTermInsurance;
+	
+	@FindBy(xpath = "//a[@id='dashboard-momentumwealth-link']")
+	WebElement PP_Investments;
+	
+	@FindBy(xpath = "//a[@id='dashboard-willsandtrust-link']")
+	WebElement PP_WillsAndTrust;
+	
+	//@FindBy(xpath = "//div[@class='row-threetabs']/div[2]/div[1]/a[1]")
+	@FindBy(xpath = "(//a[contains(text(),'View')])[3]")
+	WebElement ServiceProviders;
+	
+	@FindBy(xpath = "//a[@id='dashboard-msign-multi-fsp-link']")
+	WebElement MSign;
+	
+	@FindBy(xpath = "//a[contains(text(),'Wealth Online Switches')]")
+	WebElement WealthOnlineSwitches;
+	
+	@FindBy(xpath = "//a[contains(text(),'Wealth Online Quote')]")
+	WebElement WealthOnlineQuote;
+	
+	@FindBy(xpath = "//a[contains(text(),'Wealth Paperless Business')]")
+	WebElement WealthPaperlessBusiness;
+	
+	
+	//Initializing the page objects
+	public HomePage() {
+			
+		PageFactory.initElements(driver, this);
+		//Alternate method - replace HomePage.class - in place of "this"
+		testutil = new TestUtil();
+	}
+			
+			
+	public boolean verifyAdvisorNameAndInitials() {
+		//testutil.impersonateUser();
+		closeBtn.click();
+		testutil.Sleep();
+		return AdvisorName.isDisplayed();		
+			
+	}		 
+		
+	public boolean validateRoleCodeLabel() {	
+		closeBtn.click();
+		testutil.Sleep();
+		return RoleCodeLabel.isDisplayed();
+			
+	}	
+	
+	public boolean verifyVIALogoAtHome() {	
+		closeBtn.click();
+		testutil.Sleep();
+		return VIALogo.isDisplayed();
+		
+	}
+	
+	public boolean validateBanner() {
+		closeBtn.click();
+		testutil.Sleep();
+		return Banner.isDisplayed();
+	}
+	
+	public void clickOnViewClientList() {
+		closeBtn.click();
+		testutil.Sleep();
+		ViewClientList.click();
+		
+	}
+	
+	public void clickOnCreateAClient() {
+		closeBtn.click();
+		testutil.Sleep();
+		CreateAClient.click();
+	}
+	
+		
+	public ToolsPage clickOnToolsLink() {
+		
+		closeBtn.click();
+		testutil.Sleep();
+		Toolslink.click();
+		return new ToolsPage();
+		
+	}
+	
+	public void clickOn10StepClientEngagementFinancialPlanningLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		FinancialPlanningLink.click();
+				
+	}
+		
+	public void clickOnCampaignMasterLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		BuildYourCampaignLink.click();
+				
+	}
+	
+	public LeadsAndOppartunitiesPage clickOnLeadsAndOppartunitiesLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		LeadsAndOppartunitiesLink.click();
+		return new LeadsAndOppartunitiesPage();
+	}
+	public InsightsPage clickOnInsight_ViewReportsLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		Insight_ViewReportsLink.click();
+		MultiplyBookReportLink.click();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new InsightsPage();
+	}
+	
+	public void clickOnWealth_InvestorListLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		InvestorListLink.click();
+				
+	}
+	
+	public void clickOnWealth_TaskListLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		TaskListLink.click();
+				
+	}
+	public void clickOnWealth_FundsLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		FundsLink.click();
+				
+	}
+	public void clickOnWealth_ReportsLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		ReportsLink.click();
+				
+	}
+	public void clickOnWealth_BookAnalysisLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		BookAnalysisLink.click();
+				
+	}
+	
+	public ClientsPage clickOnClientsTab() {
+		closeBtn.click();
+		testutil.Sleep();
+		ClientsTab.click();
+		return new ClientsPage();
+	}
+	
+	public void clickOnMomentumShortTermInsuranceLink() {
+		closeBtn.click();
+		testutil.Sleep();
+		MomentumShortTermInsuranceLink.click();
+						
+	}
+	public BookReportPage clickOnBookReportTab() {
+		closeBtn.click();
+		testutil.Sleep();
+		ClientsTab.click();
+		return new BookReportPage();
+	}
+	
+	public TrackingPage clickOnTrackingTab() {
+		closeBtn.click();
+		testutil.Sleep();
+		ClientsTab.click();
+		return new TrackingPage();
+	}
+		
+	public FeedbackPage clickOnFeedbackTab() {
+		closeBtn.click();
+		testutil.Sleep();
+		ClientsTab.click();
+		return new FeedbackPage();
+		
+	}
+	public WhatsNewPage clickOnWhatsNewTab() {
+		closeBtn.click();
+		testutil.Sleep();
+		ClientsTab.click();
+		return new WhatsNewPage();
+				
+	}
+	public void clickOnMDSOnlineLink() {
+		
+		closeBtn.click();
+		testutil.Sleep();
+		MDSOnlineLink.click();
+	}
+	
+	public LibrariesPage clickOnLibrariestab() {
+		
+		closeBtn.click();
+		testutil.Sleep();
+		LibrariesLink.click();
+		return new LibrariesPage();
+		
+	}
+public ClientSearchPage clickOnClientsearchtab() {
+		
+		closeBtn.click();
+		testutil.Sleep();
+		ClientSearchLink.click();
+		return new ClientSearchPage();
+		
+	}
+
+public void clickOnPP_ShortTermInsuranceLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	ProductProviders.click();
+	PP_ShortTermInsurance.click();
+	
+}
+
+public void clickOnPP_InvestmentsLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	ProductProviders.click();
+	PP_Investments.click();
+	
+}
+
+public void clickOnPP_WillsAndTrustLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	ProductProviders.click();
+	PP_WillsAndTrust.click();
+	
+}
+
+
+public void clickOnSP_MSignLink() throws InterruptedException {
+	closeBtn.click();
+	testutil.Sleep();
+	ServiceProviders.click();
+	//Thread.sleep(2000);
+	MSign.click();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+
+public void clickOnWealthOnlineSwitchesLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	WealthOnlineSwitches.click();
+	
+}
+
+public void clickOnWealthOnlineQuoteLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	WealthOnlineQuote.click();
+	
+}
+
+public void clickOnWealthPaperlessBusinessLink() {
+	closeBtn.click();
+	testutil.Sleep();
+	WealthPaperlessBusiness.click();
+	
+}
+
+
+
+
+}

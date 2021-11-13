@@ -1,0 +1,366 @@
+package com.via.qa.prod.test;
+
+
+import java.io.File;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.via.qa.prod.base.TestBase;
+import com.via.qa.prod.pages.ContextSelectorPage;
+import com.via.qa.prod.pages.HomePage;
+import com.via.qa.prod.pages.LeadsAndOppartunitiesPage;
+import com.via.qa.prod.pages.ToolsPage;
+import com.via.qa.prod.util.TestUtil;
+
+
+public class HomePageTest extends TestBase{
+	
+	ContextSelectorPage contextselectorpage;
+	HomePage homepage;
+	TestUtil testutil;
+	ToolsPage toolspage;
+	LeadsAndOppartunitiesPage leadsandoppartunitiespage;
+	
+	public HomePageTest() {
+		super();
+		
+	}
+
+@BeforeMethod
+	
+	public void setup() {
+	
+		initialization();
+		
+		// created contextselectorpage object to access all the methods of ContextSelectorPage class.
+		contextselectorpage = new ContextSelectorPage();
+		homepage = new HomePage();
+		contextselectorpage.Login(prop.getProperty("username"), prop.getProperty("password"));
+		testutil = new TestUtil();			
+	}
+
+
+@Test(priority =1)
+	
+	public void verifyNameAndInitialsTest() throws InterruptedException  {	
+		//testutil.ExplicitWait();
+	Thread.sleep(2000);
+		Assert.assertTrue(homepage.verifyAdvisorNameAndInitials(), "Incorrect Advisor Name is displaying");
+			}
+
+
+@Test(priority=2)
+
+	public void RoleCodeLabelTest() {
+		
+	    boolean Labelcode = homepage.validateRoleCodeLabel();
+		Assert.assertTrue(Labelcode);
+		}
+
+@Test(priority=3)
+	public void VIALogoAtHomeTest() {
+	
+		Assert.assertTrue(homepage.verifyVIALogoAtHome(),"VIA Logo at home screen appears incorrect");
+		}
+
+@Test(priority=4,enabled=false)
+	public void validateBannerTest() {
+		Assert.assertTrue(homepage.validateBanner(),"Banner is not displaying as expected");
+		}
+
+//@Test(priority=5)
+//	public void clickOnViewClientListTest() {
+//		homepage.clickOnViewClientList();
+//		
+//}
+
+//@Test(priority=6)
+//	public void clickOnCreateAClientTest() {
+//		homepage.clickOnCreateAClient();
+//		
+//}
+@Test(priority=7)
+	public void clickOnToolsLinkTest() {
+		
+		homepage.clickOnToolsLink();
+		toolspage = new ToolsPage();
+}
+
+@Test(priority=8)
+	public void clickOn10StepClientEngagementFinancialPlanningLinkTest() {
+	
+		homepage.clickOn10StepClientEngagementFinancialPlanningLink();
+		String FinancialPlanningLabel = driver.findElement(By.xpath("//b[contains(text(),'The Momentum Financial Planning vision:')]")).getText();
+		System.out.println(FinancialPlanningLabel);
+		Assert.assertEquals( FinancialPlanningLabel, "The Momentum Financial Planning vision:");
+		System.out.println("10 steps client engagement financial planning page is loading successfully");
+}
+
+
+// ###401 error
+//@Test(priority=9)
+//	public void clickOnCampaignMasterLinkTest() {
+//		
+//		homepage.clickOnCampaignMasterLink();
+//		testutil.switchToFrame();
+//		String CampaignMasterLabel = driver.findElement(By.xpath("/html/body/div/div[4]/div[1]/div[4]/div/h3[1]")).getText();
+//		System.out.println(CampaignMasterLabel);
+//		Assert.assertEquals( CampaignMasterLabel, "Individual campaigns");
+//		System.out.println("Campaign Master page is loading successfully");
+//}
+
+//================================Not Required for Now====================================================
+//@Test(priority=10)
+//public void clickOnLeadsAndOppartunitiesLinkTest() {
+//	
+//	homepage.clickOnLeadsAndOppartunitiesLink();
+//	leadsandoppartunitiespage = new LeadsAndOppartunitiesPage();
+//}
+
+//@Test(priority=11)
+//public void clickOnWealth_InvestorListLinkTest() {
+//	
+//	homepage.clickOnWealth_InvestorListLink();
+//	testutil.switchToFrame();
+//	String InvestorsLabel = driver.findElement(By.xpath("//span[@class ='ng-binding ng-scope']")).getText();
+//	System.out.println(InvestorsLabel);
+//	Assert.assertEquals( InvestorsLabel, "INVESTOR LIST");
+//	System.out.println("Investors List page is loading successfully");
+//}
+//
+//@Test(priority=12)
+//public void clickOnWealth_TaskListLinkTest() {
+//	
+//	homepage.clickOnWealth_TaskListLink();
+//	testutil.switchToFrame();
+//	String TaskLabel = driver.findElement(By.xpath("//h4[@class ='panel-title ng-binding']")).getText();
+//	System.out.println(TaskLabel);
+//	Assert.assertEquals(TaskLabel, "Quick Search");
+//	System.out.println("Task List page is loading successfully");
+//}
+//
+//@Test(priority=13)
+//public void clickOnWealth_FundsLinkTest() {
+//	
+//	homepage.clickOnWealth_FundsLink();
+//	testutil.switchToFrame();
+//	String FundsLabel = driver.findElement(By.xpath("//a[@class ='nav-link ng-binding']")).getText();
+//	System.out.println(FundsLabel);
+//	Assert.assertEquals(FundsLabel, "Overview");
+//	System.out.println("Funds page is loading successfully");
+//}
+//
+//@Test(priority=14)
+//public void clickOnWealth_ReportsLinkTest() {
+//	
+//	homepage.clickOnWealth_ReportsLink();
+//	testutil.switchToFrame();
+//	String ReportsLabel = driver.findElement(By.xpath("//span[@class ='ng-binding ng-scope']")).getText();
+//	System.out.println(ReportsLabel);
+//	Assert.assertEquals(ReportsLabel, "REPORTS");
+//	System.out.println("Reports page is loading successfully");
+//}
+//
+//@Test(priority=15)
+//public void clickOnWealth_BookAnalysisLinkTest() {
+//	
+//	homepage.clickOnWealth_BookAnalysisLink();
+//	testutil.switchToFrame();
+//	String BookAnalysisLabel = driver.findElement(By.xpath("//span[@class ='ng-binding ng-scope']")).getText();
+//	System.out.println(BookAnalysisLabel);
+//	Assert.assertEquals(BookAnalysisLabel, "BOOK ANALYSIS");
+//	System.out.println("Book Analysis page is loading successfully");
+//}
+//
+//@Test(priority=16)
+//public void clickOnMomentumShortTermInsuranceLinkTest() {
+//	
+//	homepage.clickOnMomentumShortTermInsuranceLink();
+//	//testutil.switchToFrame();
+//	String AdviceSalesReferralsLabel = driver.findElement(By.xpath("//h4[@class='panel-title ng-binding ng-scope']")).getText();
+//	System.out.println(AdviceSalesReferralsLabel);
+//	Assert.assertEquals(AdviceSalesReferralsLabel, "Advice sales/Referrals for DEREK ALEXANDER");
+//	System.out.println("Advice sales/Referrals for DEREK ALEXANDER  is loading successfully");
+//	
+//}
+//
+//@Test(priority=17)
+//public void clickOnMDSOnlineLinkTest() {
+//	
+//	homepage.clickOnMDSOnlineLink();
+//	
+//	String parentWindow = driver.getWindowHandle();
+//	Set<String> handles =  driver.getWindowHandles();
+//	   for(String windowHandle  : handles)
+//	       {
+//	       if(!windowHandle.equals(parentWindow))
+//	          {
+//	          driver.switchTo().window(windowHandle);
+//	                 
+//	          driver.switchTo().frame("headerMenuFrame");
+//	String MDSOnlineLabel = driver.findElement(By.xpath("//td[contains(text(),'Switch between codes:')]")).getText();
+//	System.out.println(MDSOnlineLabel);
+//	Assert.assertEquals(MDSOnlineLabel, " Switch between codes:");
+//	System.out.println("MDSOnline page is loading successfully");
+//	
+//	          }
+//	       }
+//	
+//}
+//===================================================================================================================================
+@Test(priority=18)
+public void clickOnPP_WillsAndTrustLinkTest() {
+	homepage.clickOnPP_WillsAndTrustLink();
+	String parentWindow = driver.getWindowHandle();
+	Set<String> handles =  driver.getWindowHandles();
+	   for(String windowHandle  : handles)
+	       {
+	       if(!windowHandle.equals(parentWindow))
+	          {
+	          driver.switchTo().window(windowHandle);
+	                 
+	          driver.switchTo().frame("headerMenuFrame");
+	          
+	        String ProductLinkImage = driver.findElement(By.xpath("//body/div[@id='QBODY']/div/div[@id='DV3']/table[@id='QU0003']/tbody/tr[@id='QArea']/td/table/tbody/tr/td/table/tbody/tr/td[@class='QBack0001']/table/tbody/tr/td/table[@id='QZone']/tbody/tr/td[@id='QWidth']/table[@id='QQ0003QuestText']/tbody/tr/td/font[@class='QText0001']/font/table/tbody/tr[4]/td[1]")).getText();
+	      	System.out.println(ProductLinkImage);
+	      	Assert.assertEquals(ProductLinkImage, "Progress Tasks for Client");
+	      	System.out.println("New client record shows up under 'Wills and Trust'");
+		}
+	 }
+}
+@Test(priority=19)
+public void clickOnPP_InvestmentsLinkTest() {
+	homepage.clickOnPP_InvestmentsLink();
+	String parentWindow = driver.getWindowHandle();
+	Set<String> handles =  driver.getWindowHandles();
+	   for(String windowHandle  : handles)
+	       {
+	       if(!windowHandle.equals(parentWindow))
+	          {
+	          driver.switchTo().window(windowHandle);
+	                 
+	         // driver.switchTo().frame("headerMenuFrame");
+	          
+	        String PP_Investments = driver.findElement(By.xpath("//ul[@class='nav navbar-nav navbar-main']//a[@class='ng-binding'][contains(text(),'Investors')]")).getText();
+	      	System.out.println(PP_Investments);
+	      	Assert.assertEquals(PP_Investments, "Investors");
+	      	System.out.println("Product Providers investment tab loads successfully");
+		}
+	 }
+}
+
+@Test(priority=20)
+public void clickOnPP_ShortTermInsuranceLinkTest() {
+	homepage.clickOnPP_ShortTermInsuranceLink();
+       
+	        String PP_ShortTermInsurance = driver.findElement(By.xpath("//a[contains(text(),'Advice sales')]")).getText();
+	      	System.out.println(PP_ShortTermInsurance);
+	      	Assert.assertEquals(PP_ShortTermInsurance, "Advice sales/Referral");
+	      	System.out.println("New client record shows up under 'Wills and Trust'");
+		}
+
+@Test(priority=21)
+public void verifyInsight_ViewReportsLinkTest() {
+	homepage.clickOnInsight_ViewReportsLink();
+	//testutil.switchToFrame();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	String InsightReportLabel = driver.findElement(By.xpath("//div[@id='selectedReport']")).getText();
+	System.out.println(InsightReportLabel);
+	Assert.assertEquals(InsightReportLabel, "Multiply Book Report");
+	System.out.println("Insight Report-Multiply Book Report is loading successfully.");
+}
+
+//@Test(priority=22)
+//public void clickOnclickOnSP_MSignLinkTest() throws InterruptedException {
+//	homepage.clickOnSP_MSignLink();
+//	String parentWindow = driver.getWindowHandle();
+//	Set<String> handles =  driver.getWindowHandles();
+//	   for(String windowHandle  : handles)
+//	       {
+//	       if(!windowHandle.equals(parentWindow))
+//	          {
+//	          driver.switchTo().window(windowHandle);
+//	                 
+//	     //     driver.switchTo().frame("headerMenuFrame");
+//	        
+//	        String PP_ShortTermInsurance = driver.findElement(By.xpath("//li[@class='active']//a[contains(text(),'Documents')]")).getText();
+//	      	System.out.println(PP_ShortTermInsurance);
+//	      	Assert.assertEquals(PP_ShortTermInsurance, "Documents");
+//	      	System.out.println("Service Providers MSign tab loads successfully");
+//	          }
+//	       }
+//	 }
+
+// Links not there
+	 
+//	 @Test(priority=23)
+//public void clickOnWealthOnlineSwitchesLinkTest() {
+//	homepage.clickOnWealthOnlineSwitchesLink();
+//  	System.out.println("Wealth Online switch link loads successfully");
+//		
+//}
+//
+//@Test(priority=24)
+//public void clickOnWealthOnlineQuoteLinkTest() {
+//	homepage.clickOnWealthOnlineQuoteLink();
+//   	System.out.println("Wealth Online Quote link loads successfully");
+//
+//}
+//
+//@Test(priority=25)
+//public void clickOnWealthPaperlessBusinessLinkTest() {
+//	homepage.clickOnWealthPaperlessBusinessLink();
+//    System.out.println("Wealth Paperless Business link loads successfully");
+//
+//}
+
+
+@AfterMethod
+	
+public void screenShot(ITestResult result){
+	 //using ITestResult.FAILURE is equals to result.getStatus then it enter into if condition
+	 if(ITestResult.FAILURE==result.getStatus()){
+	 try{
+	 // To create reference of TakesScreenshot
+	 TakesScreenshot screenshot=(TakesScreenshot)driver;
+	 // Call method to capture screenshot
+	 File src=screenshot.getScreenshotAs(OutputType.FILE);
+	 // Copy files to specific location 
+	 // result.getName() will return name of test case so that screenshot name will be same as test case name
+	 FileUtils.copyFile(src, new File("C:\\Users\\srrepala\\project\\EclipseProdWorkspace\\EclipseProdWorkspace\\VIAprod_Regression\\Failed_Screenshots\\Screenshots"+result.getName()+".png"));
+	 System.out.println("Successfully captured a screenshot");
+	  }catch (Exception e){
+	 System.out.println("Exception while taking screenshot "+e.getMessage());
+	 }
+	 }
+	/// if (driver != null) {
+	      // Set the score depending on the tests.
+	        driver.quit();
+		//}
+}
+
+//@AfterTest
+//public void tearDown() {
+//driver.quit();
+//}
+
+	
+}

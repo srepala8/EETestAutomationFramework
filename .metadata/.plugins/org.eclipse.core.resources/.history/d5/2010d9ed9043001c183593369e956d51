@@ -1,0 +1,8 @@
+url=http://hotel-test.equalexperts.io/
+browser=chrome
+Fname=Test
+SName=Testing
+Price=1200
+Option=true
+#Option=false
+CheckinDate=

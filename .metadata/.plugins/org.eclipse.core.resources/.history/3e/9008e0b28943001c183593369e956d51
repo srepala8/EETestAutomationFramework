@@ -1,0 +1,38 @@
+package com.ee.qa.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.ee.qa.base.TestBase;
+import com.ee.qa.util.TestUtil;
+
+public class HotelBookingFormPage  extends TestBase {
+	
+	
+	TestUtil testutil;
+	
+	@FindBy(xpath = "//input[@id='firstname']")
+	WebElement FirstName;
+	
+	@FindBy(xpath = "//input[@id='lastname']")
+	WebElement SurName;
+	
+	
+	@FindBy(xpath = "//input[@id='totalprice']")
+	WebElement Price;
+	
+	
+	
+	@FindBy(xpath = "//input[@value=' Save ']")
+	WebElement Save;
+	
+	public HotelBookingFormPage() {
+		
+		PageFactory.initElements(driver, this);
+		//Alternate method - replace HomePage.class - in place of "this"
+		testutil = new TestUtil();
+	}
+		
+
+}

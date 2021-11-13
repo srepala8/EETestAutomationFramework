@@ -1,0 +1,72 @@
+package com.ee.qa.util;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.ee.qa.base.TestBase;
+
+public class TestUtil extends TestBase {
+	
+	public static long PAGE_LOAD_TIMEOUT = 20;
+	public static long IMPLICIT_Wait = 18;
+	//WebElement element;	
+	
+	public void switchToFrame(){
+		
+		driver.switchTo().frame("iframe-for-3rd-party");
+	}
+	
+	public void switchToIFrameError() {
+		
+		driver.switchTo().frame("iframe-error-container");
+	}
+	
+	public boolean isAlertPresent() {
+	    try {
+	      driver.switchTo().alert();
+	      return true;
+	    } catch (NoAlertPresentException e) {
+	      return false;
+	    }
+	  }
+	
+	@SuppressWarnings("unused")
+	public void ExplicitWait() {
+		
+		WebDriverWait wait=new WebDriverWait(driver,10);	
+		
+		// Wait till the element is not visible		
+		WebElement element =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='hero-link--view-client-list']")));
+	}
+	public void Sleep() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public void windowsHandler() {
+		
+	
+		String parentWindow = driver.getWindowHandle();
+		Set<String> handles =  driver.getWindowHandles();
+		   for(String windowHandle  : handles)
+		       {
+		       if(!windowHandle.equals(parentWindow))
+		          {
+		          driver.switchTo().window(windowHandle);
+		          
+		          //driver.close();
+					          
+		          }                                                                                                                               
+		       //driver.switchTo().window(parentWindow);
+		       
+		       }
+	}
+
+}

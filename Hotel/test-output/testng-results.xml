@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-11-12T12:47:53 SAST" name="HotelBookingTestSuite" finished-at="2021-11-12T12:48:22 SAST" duration-ms="29171">
+    <groups>
+    </groups>
+    <test started-at="2021-11-12T12:47:53 SAST" name="HotelBookingTest" finished-at="2021-11-12T12:48:22 SAST" duration-ms="29171">
+      <class name="com.ee.qa.test.HotelBookingFormPageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:47:53 SAST" name="setup" finished-at="2021-11-12T12:47:57 SAST" duration-ms="4346" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyTitleTest()[pri:1, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:47:57 SAST" name="verifyTitleTest" finished-at="2021-11-12T12:48:00 SAST" duration-ms="3030" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method is-config="true" signature="screenShot(org.testng.ITestResult)[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:00 SAST" name="screenShot" finished-at="2021-11-12T12:48:00 SAST" duration-ms="320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HotelBookingFormPageTest.verifyTitleTest()[pri:1, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenShot -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:00 SAST" name="setup" finished-at="2021-11-12T12:48:04 SAST" duration-ms="4243" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyHBFormLabelTest()[pri:2, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:04 SAST" name="verifyHBFormLabelTest" finished-at="2021-11-12T12:48:06 SAST" duration-ms="1045" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHBFormLabelTest -->
+        <test-method is-config="true" signature="screenShot(org.testng.ITestResult)[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:06 SAST" name="screenShot" finished-at="2021-11-12T12:48:06 SAST" duration-ms="274" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyHBFormLabelTest status=SUCCESS method=HotelBookingFormPageTest.verifyHBFormLabelTest()[pri:2, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenShot -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:06 SAST" name="setup" finished-at="2021-11-12T12:48:10 SAST" duration-ms="4609" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createAbookingTest()[pri:3, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:10 SAST" name="createAbookingTest" finished-at="2021-11-12T12:48:15 SAST" duration-ms="4501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAbookingTest -->
+        <test-method is-config="true" signature="screenShot(org.testng.ITestResult)[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:15 SAST" name="screenShot" finished-at="2021-11-12T12:48:15 SAST" duration-ms="364" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=createAbookingTest status=SUCCESS method=HotelBookingFormPageTest.createAbookingTest()[pri:3, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenShot -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:15 SAST" name="setup" finished-at="2021-11-12T12:48:19 SAST" duration-ms="3941" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="deleteAbookingTest()[pri:4, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:19 SAST" name="deleteAbookingTest" finished-at="2021-11-12T12:48:21 SAST" duration-ms="2100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAbookingTest -->
+        <test-method is-config="true" signature="screenShot(org.testng.ITestResult)[pri:0, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283]" started-at="2021-11-12T12:48:21 SAST" name="screenShot" finished-at="2021-11-12T12:48:22 SAST" duration-ms="366" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=deleteAbookingTest status=SUCCESS method=HotelBookingFormPageTest.deleteAbookingTest()[pri:4, instance:com.ee.qa.test.HotelBookingFormPageTest@17046283] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenShot -->
+      </class> <!-- com.ee.qa.test.HotelBookingFormPageTest -->
+    </test> <!-- HotelBookingTest -->
+  </suite> <!-- HotelBookingTestSuite -->
+</testng-results>
